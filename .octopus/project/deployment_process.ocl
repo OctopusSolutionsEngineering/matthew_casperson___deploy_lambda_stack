@@ -1,0 +1,38 @@
+step "deploy-api-gateway" {
+    name = "Deploy API Gateway"
+
+    action {
+        action_type = "Octopus.DeployRelease"
+        properties = {
+            Octopus.Action.DeployRelease.DeploymentCondition = "Always"
+            Octopus.Action.DeployRelease.ProjectId = "api-gateway"
+        }
+        worker_pool_variable = ""
+    }
+}
+
+step "deploy-products-service" {
+    name = "Deploy Products Service"
+
+    action {
+        action_type = "Octopus.DeployRelease"
+        properties = {
+            Octopus.Action.DeployRelease.DeploymentCondition = "Always"
+            Octopus.Action.DeployRelease.ProjectId = "products-service"
+        }
+        worker_pool_variable = ""
+    }
+}
+
+step "deploy-frontend-webapp" {
+    name = "Deploy Frontend WebApp"
+
+    action {
+        action_type = "Octopus.DeployRelease"
+        properties = {
+            Octopus.Action.DeployRelease.DeploymentCondition = "Always"
+            Octopus.Action.DeployRelease.ProjectId = "frontend-webapp"
+        }
+        worker_pool_variable = ""
+    }
+}
