@@ -6,6 +6,7 @@ step "deploy-api-gateway" {
         properties = {
             Octopus.Action.DeployRelease.DeploymentCondition = "Always"
             Octopus.Action.DeployRelease.ProjectId = "api-gateway"
+            Octopus.Action.RunOnServer = "false"
         }
         worker_pool_variable = ""
     }
@@ -18,7 +19,8 @@ step "deploy-products-service" {
         action_type = "Octopus.DeployRelease"
         properties = {
             Octopus.Action.DeployRelease.DeploymentCondition = "Always"
-            Octopus.Action.DeployRelease.ProjectId = "products-service"
+            Octopus.Action.DeployRelease.ProjectId = "products-service-1"
+            Octopus.Action.RunOnServer = "false"
         }
         worker_pool_variable = ""
     }
@@ -32,6 +34,7 @@ step "deploy-frontend-webapp" {
         properties = {
             Octopus.Action.DeployRelease.DeploymentCondition = "Always"
             Octopus.Action.DeployRelease.ProjectId = "frontend-webapp"
+            Octopus.Action.RunOnServer = "false"
         }
         worker_pool_variable = ""
     }
